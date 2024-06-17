@@ -1,0 +1,43 @@
+{% load static %}
+<div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="blog_page_sidebar">
+        <div class="blog_search">
+            <form method="post" action="{% url "article:search" %}">
+                {% csrf_token %}
+                <input name="search" type="text" placeholder="مقالات را جست و جو کنید " />
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+        
+        <div class="blog_categories">
+            <h2>دسته بندی مقالات</h2>
+            <div class="multi_line"></div>
+            <ul id="blog_categories">
+                {% for category in cats %}
+                    <li><a href="{{category.get_absolute_url}}">{{ category.title }}</a></li>
+                {% endfor %}
+                </ul>
+        </div>
+        <div class="blog_recent_post">
+            <h2> جدیدترین مقالات</h2>
+            <div class="multi_line"></div>
+            {% for article in recent %}
+                <div class="single_recent_post">
+                    <div class="log_li_img">
+                        <img src="#" alt="" />
+                    </div>
+                    <div class="recent_post_text">
+                    
+                        <a href="single-blog.html"><h3>{{ article.title }}<br>
+                           </h3></a>
+                        <p>{{article.jpublish}}</p>	
+                    </div>
+                    <div class="recent_post_img">
+                        <a href="{% url 'article:detail' article.slug %}"><img src="{{ article.thumbnail.url }}" alt="" /></a>
+                    </div>
+                </div>
+            {% endfor%}
+            
+        </div>
+    </div>
+</div>

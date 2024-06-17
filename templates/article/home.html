@@ -1,0 +1,55 @@
+{% extends 'article/base.html'%}
+{% block article %}
+{% load static %}
+
+<style>
+	.blog_date_in_page span{
+		font-size: 20px;
+	}
+
+</style>
+
+<section class="blog_page_area">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-12">
+				{% for article in articles %}
+				<div class="single_blog_in_page">
+					<div class="blog_img_l"><img src="{{article.thumbnail.url}}" alt="" /></div>
+					<div class="blog_date_in_page">
+						<h2>_ <span>تاریخ انتشار</span></h2>
+						<p>{{ article.jpublish }}</p>
+					</div>
+					<div class="blog_text_in_page">
+						<a href="{% url 'article:detail' article.slug %}"><h3>{{article.title }}</h3></a>
+						<p>{{article.description|striptags|truncatewords:30}}</p>
+						<div class="read_more">
+							<a class="read_more_blog" href="{% url 'article:detail' article.slug %}">Read more</a>
+						</div>
+					</div>
+				</div>
+			
+			{% endfor %}
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="pagi_line"></div>
+						<div class="pagi_ul">
+							<ul id="pagination">
+								<li><a href="">Previous</a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5 ...</a></li>
+								<li><a href="">Next</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+				{% include 'article/sidebar.html'%}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

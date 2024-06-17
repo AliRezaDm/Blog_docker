@@ -1,0 +1,197 @@
+<!-- Django Tags -->
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>		
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blog </title>
+	
+	<!-- fonts files -->
+	<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	
+	
+	<!-- Font awesome css -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	
+	<!-- Owl carousel css -->
+	<link rel="stylesheet" href="{% static 'article/css/owl.transitions.css'%}">
+	<link rel="stylesheet" href="{% static 'article/css/owl.carousel.css'%}">
+	<link rel="stylesheet" href="{% static 'article/css/owl.theme.css'%}">
+	
+	<!-- bx-slider css -->
+	<link rel="stylesheet" href="{% static 'article/css/custom.css'%}">
+	<link rel="stylesheet" href="{% static 'article/css/jquery.bxslider.css'%}">
+	
+	<!-- bootstrap select css -->
+	<link rel="stylesheet" href="{% static 'article/css/bootstrap-select.min.css'%}">
+	
+	<!-- lightbox css -->
+	<link rel="stylesheet" href="{% static 'article/css/lightbox.css'%}">
+	
+	<!-- Revolution slider css -->
+	<link href="{% static 'article/js/rs-plugin/css/settings.css'%}" rel="stylesheet" />
+	
+	<!-- Bootstrap css -->
+	<link rel="stylesheet" href="{% static 'article/css/bootstrap.css'%}">
+	
+	<!-- Custom css -->
+	<link rel="stylesheet" href="{% static 'article/css/style.css'%}">
+
+	<link rel="stylesheet" href="{% static 'article/css/responsive.css'%}">
+
+	<!-- Favicons -->
+	{% comment %} <link rel="apple-touch-icon-precomposed" href="#">
+	<link rel="shortcut icon" type="image/ico" href="#"> {% endcomment %}
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!-- This Template Is Fully Coded By Shakhawat H. from codingcouples.com -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+  </head>
+  <body>
+    
+	<div style="padding-top: 20px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="header_top_right floatleft" >
+						{% if request.user.is_authenticated %}
+							<p style="font-size:30px;"><a href="{% url "account_logout" %}"><i style="font-size:30px;" class="fa-solid fa-right-from-bracket"></i></a>
+						{% else %}
+							<p style="font-size:30px;"><a href="{% url "account_login" %}"><i style="font-size:30px;" class="fa-solid fa-right-to-bracket"></i></a> / <a href="{% url "account_login" %}"><i style="font-size:30px;" class="fa-sharp fa-solid fa-registered"></i></a></p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			
+		</div>
+	</div>
+
+	{% include "article/nav.html" %}
+	
+	<section class="blog_slider_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="blog_slider_box">
+						<h2>Blog</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="breadcumb_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="bread_box">
+						<ul class="breadcumb">
+							<li><a href="index.html"><span></span></a></li>
+							<li class="active"><a href=""></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block article %}
+
+	{% endblock %}
+	
+	<footer class="entire_footer_area">
+		<div class="footer_top_area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-sm-6 col-xs-12">
+						<div class="footer_top_left">
+						............
+						</div>
+					</div>
+					<div class="col-md-5 col-sm-6 col-xs-12">
+						<div class="footer_top_right">
+							.......
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer_area">
+			<div class="container">
+				<div class="row">
+				
+					<div class="col-md-3 col-sm-3 col-xs-12 floatright">
+						<div class="single_widget">
+							<h5> تماس با ما</h5>
+							<div class="wid_line"></div>
+							<address>
+								Address : 44 New Design Street,<br>
+								Melbourne 005<br>
+								Phone : (01) 800 433 633<br>
+								Email : info@Example.com
+							</address>
+							<ul class="wid_social">
+								<li><a class="fa fa-facebook" href=""></a></li>
+								<li><a class="fa fa-twitter" href=""></a></li>
+								<li><a class="fa fa-google-plus" href=""></a></li>
+								<li><a class="fa fa-pinterest" href=""></a></li>
+								<li><a class="fa fa-rss" href=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- JS Files -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script>
+	  $(function() {
+		$( "#slider-range" ).slider({
+		  range: true,
+		  min: 150,
+		  max: 1500,
+		  values: [ 520, 1100 ],
+		  slide: function( event, ui ) {
+			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		  }
+		});
+		$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+		  " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+	  });
+	  </script>
+    <script src="{% static 'article/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'article/js/lightbox.min.js'%}"></script>
+    <script src="{% static 'article/js/jquery.elevatezoom.js'%}"></script>
+    <script src="{% static 'article/js/bootstrap-select.min.js'%}"></script>
+	<script src="{% static 'article/js/rs-plugin/js/jquery.themepunch.plugins.min.js'%}"></script>
+	<script src="{% static 'article/js/rs-plugin/js/jquery.themepunch.revolution.min.js'%}"></script>
+	<script src="{% static 'article/js/rs-plugin/rs.home.js'%}"></script>
+    <script src="{% static 'article/js/bootstrap.min.js'%}"></script>
+	<script src="https://kit.fontawesome.com/6f1997fe97.js" crossorigin="anonymous"></script>
+	<!--Opacity & Other IE fix for older browser-->
+	<!--[if lte IE 8]>
+		<script type="text/javascript" src="{% static 'article/js/ie-opacity-polyfill.js'%}"></script>
+	<![endif]-->
+    <script src="{% static 'article/js/main.js'%}"></script>
+  </body>
+</html>
